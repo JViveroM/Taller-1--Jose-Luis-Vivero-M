@@ -1,0 +1,31 @@
+package co.edu.uelbosque.view;
+
+import javax.swing.JOptionPane;
+
+public class view {
+	
+	public String pedirDato(String mensaje) {
+		String s = JOptionPane.showInputDialog(mensaje);
+		return s;
+	}
+	public int pedirDatoInt(String mensaje) {
+		String s = JOptionPane.showInputDialog(mensaje);
+		int i  = Integer.parseInt(s);
+		return i;
+	}
+	public Double pedirDatoDouble(String mensaje) {
+		String s = JOptionPane.showInputDialog(mensaje);
+		Double d = Double.parseDouble(s);
+		return d;
+	}
+
+	public void imprimir(String mensaje) {
+		JOptionPane.showMessageDialog(null, mensaje);
+	}
+	public void imprimir(Boolean mensaje) {
+		JOptionPane.showMessageDialog(null, mensaje);
+	}
+	public void imprimir(int mensaje) {
+		JOptionPane.showMessageDialog(null, mensaje);
+	}
+}
