@@ -1,0 +1,30 @@
+package co.edu.uelbosque.model;
+
+import java.util.ArrayList;
+
+import co.edu.uelbosque.model.persistence.Archivo;
+
+public class regaloDTO {
+	
+	ArrayList a;
+	regalo r;
+	Archivo ar;
+	
+	public regaloDTO() {
+		
+		r = new regalo();
+		ar = new Archivo();
+	}
+	public String read() {
+		
+		String s = ar.getF().toString();
+		return s;
+		
+	}
+	public void update(regalo r) {
+		
+	}
+	public void delete(regalo r) {
+		
+	}
+}
