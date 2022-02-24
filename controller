@@ -1,0 +1,84 @@
+package co.edu.uelbosque.controller;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
+import co.edu.uelbosque.model.regalo;
+import co.edu.uelbosque.view.view;
+
+public class controller {
+	
+	
+	ArrayList<regalo>valores;
+	
+	view v;
+	
+	public controller()  {
+		
+		valores = new ArrayList<>();
+		
+		v = new view();
+		int a = Integer.parseInt(v.pedirDato("Que funcion desea realizar?"+"\n1.Saber el total de ventas d ela tienda"+"\n2.Retorna el detalle de una factura solicitada"+"\n3.saber las unidades de un stock especifico"+"\n4.saber el promedio de ventas menssuales"+"\n5.Buscar por palabra clave"));
+	
+		switch(a) {
+		case 1:
+			v.imprimir(sumTotalSales(valores));
+			break;
+		case 2:
+			v.imprimir(findByInvoiceNo(v.pedirDato("Ingrese el invoiceNo"), valores));
+			break;
+		case 3:
+			v.imprimir(countByStockCode(v.pedirDato("Ingrese el Stock code"), valores));
+			break;
+		case 4:
+			v.imprimir(avgMonthlySales(valores));
+			break;
+		case 5:
+			v.imprimir(findPartiallyByDescription(v.pedirDato("Ingrese la palabra clave a buscar"),valores));
+			break;
+		}
+	}
+	
+	public boolean findByInvoiceNo(String invoiceNo, ArrayList array) {
+		boolean b = false;
+		for (int i = 0; i <= array.size(); i++) {
+		if(array.indexOf(invoiceNo)!=-1) {
+			 b = true;
+		}else {
+			b= false;
+		}
+		}
+		return b;
+	}
+	
+	public int countByStockCode(String stockCode,ArrayList array ) {
+		int contador = 0;
+		for (int i = 0; i <= array.size(); i++) {
+			if(array.indexOf(stockCode)!=-1) {
+				contador++;
+			}
+		}
+		return contador;
+	}
+	
+	public String findPartiallyByDescription(String s, ArrayList array) {
+		int i=0;
+		if(array.contains(s)) {
+			i = array.indexOf(s);
+			String w = array.get(i).toString();
+			return w;
+		}else {
+			return "no encontrado";
+		}
+	}
+	
+	public int  sumTotalSales(ArrayList array) {//imcompleto
+	return 0;
+	}
+	public String avgMonthlySales(ArrayList array) {
+		return null;//imcompleto
+	
+	}
+}
