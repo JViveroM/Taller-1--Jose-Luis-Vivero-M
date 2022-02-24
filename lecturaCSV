@@ -1,0 +1,22 @@
+package co.edu.uelbosque.model;
+
+import java.io.File;
+import java.util.ArrayList;
+
+import co.edu.uelbosque.model.persistence.Archivo;
+import co.edu.uelbosque.model.persistence.RegaloDAO;
+
+public class LecturCSV {
+	
+	private ArrayList listaRegalos;
+	private ArrayList invoice;
+	private RegaloDAO arch;
+	private Archivo archivo;
+	
+	public LecturCSV() {
+		arch = new RegaloDAO(archivo);
+	}
+	public LecturCSV(File f) {
+		arch = new RegaloDAO(f, listaRegalos, invoice);
+	}
+}
